@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>{{ title }} - Event List</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    </head>
+    <body>
+        <div>
+            <h1>Event Planner</h1> 
+        </div>
+
+        <section>
+
+            <form action="/events" method="post">
+                <p>
+                    <label for="name">Event Name: </label>
+                    <input type="text" name="name" id="name"> <br>
+                </p>
+                <p>
+                    <label for="date">Date of Event: </label>
+                    <input type="date" name="date" id="date"> <br>
+                </p>
+                <p>
+                    <label for="room_location">Location: </label>
+                    <input type="text" name="room_location" id="room_location"> <br>
+                </p>
+                <p>
+                    <label for="number_of_guests">Number of Guests: </label>
+                    <input type="number" name="number_of_guests" id="number_of_guests"> <br>
+                </p>
+                <p>
+                    <label for="description">Description: </label>
+                    <textarea name="description" id="description" rows="2" cols="30"></textarea> <br>
+                </p>
+                <p id="recurring">
+                    <label for="recurring">Event recurring?</label>
+                    <input type="radio" name="recurring" id="recurring"> <br>
+                </p>
+                <p>
+                    <input type="submit" value="Add Event">
+                </p>
+            </form>
+        </section>
+        <main>
+            {% for event in events %}
+            <h3>{{event.name}}</h3>
+            <h4>Date: {{event.date}}</h4>
+            <h4>Number of Guests: {{event.number_of_guests}}</h4>
+            <h4>Room Location: {{event.room_location}} </h4>
+            <h4>{{event.description}}</h4>
+            <h4>Event Recurring?</h4>
+            {% if event.recurring %} 
+            <span> &#9989;</span>
+            {% endif %}
+            {% endfor %}
+        </main>
+    </body>
+
+</html>

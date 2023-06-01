@@ -1,0 +1,40 @@
+/* form input {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    right: 40%
+
+} */
+
+
+/* form textarea {
+    position: absolute;
+    left: 42%;
+} */
+
+#recurring {
+    padding-top: 12px;
+}
+
+main {
+    padding-top: 30px;
+    padding-left: 20px;
+}
+
+section {
+    display: flex;
+    width:100%;
+    justify-content: center;
+}
+
+p label {
+    display: flex;
+    justify-content: flex-start;
+}
+
+
+
+div h1 {
+   text-align: center;
+   width: 93%;
+}
