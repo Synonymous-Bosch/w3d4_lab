@@ -1,4 +1,4 @@
-from flask import render_template, request
+from flask import render_template, request, redirect
 from app import app
 from models.event import Event
 from models.event_list import *
@@ -18,3 +18,8 @@ def add_event():
     new_event = Event(event_date, event_name, event_number_of_guests, event_location, event_description, event_recurring)
     add_new_event(new_event)
     return "Done"
+
+@app.route("/events/delete/<index>", methods=["POST"])
+def delete(index):
+    delete_event(int(index))
+    return redirect("/events")
